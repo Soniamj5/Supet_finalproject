@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">Supet_FinalProject</string>
+    <string name="app_name">Supet</string>
+    <string name="home_icon">Home</string>
+    <string name="person_icon">Perfil</string>
+    <string name="add">Add</string>
+    <string name="reg_txv">Complete los siguientes datos:</string>
+    <string name="reg_name">Nombre</string>
+    <string name="reg_email">Correo</string>
+    <string name="reg_pass1">Contraseña</string>
+    <string name="reg_pass2">Repita la contraseña</string>
+    <string name="reg_btn">Registrar</string>
+    <string name="reg_txv2">¿Ya tiene cuenta?</string>
+    <string name="reg_login">Inicie sesión</string>
+    <string name="image">Perro jugando</string>
+    <string name="login_txv">Iniciar sesión para continuar</string>
+    <string name="login_forget">¿Olvidó su contraseña?</string>
+    <string name="login_btn">Iniciar Sesión</string>
+    <string name="login_txv2">¿No tiene cuenta?</string>
+    <string name="login_register">Regístrese</string>
+    <string name="logout_btn">Logout</string>
 </resources>

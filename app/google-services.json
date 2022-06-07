@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "104552803573",
+    "project_id": "supet-proyectofinal",
+    "storage_bucket": "supet-proyectofinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104552803573:android:34cded9f073ebb06fee9bc",
+        "android_client_info": {
+          "package_name": "com.animalhelpapp.supet_finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104552803573-f3hsjqhceksbhmrd0bgh2aa1i40hbs0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwJE3kOBivIYkKmbZdGL2gZCKCY23mntw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104552803573-f3hsjqhceksbhmrd0bgh2aa1i40hbs0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="280dp"
                 android:contentDescription="@string/image"
                 app:srcCompat="@mipmap/perro" />
 
@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="@string/app_name"
                 android:textColor="@color/indian_red"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold|italic" />
 
             <TextView
@@ -134,8 +134,7 @@
                 android:text="@string/reg_txv2"
                 android:textColor="@color/dark_brown"
                 android:textSize="16sp"
-                android:layout_gravity="end"
-                android:layout_marginBottom="5dp"/>
+                android:layout_gravity="end" />
 
             <TextView
                 android:id="@+id/reg_login"

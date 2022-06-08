@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +30,10 @@ public class RegisterActivity extends AppCompatActivity {
         //Inicializar Firebase
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        /*ir a LoginActivity*/
+        TextView reg_login = findViewById(R.id.reg_login);
+        reg_login.setOnClickListener(v -> iraLogin());
 
         //conectar con la parte gráfica
         name = findViewById(R.id.reg_name);
@@ -75,5 +80,11 @@ public class RegisterActivity extends AppCompatActivity {
             }).addOnFailureListener(e -> Toast.makeText(RegisterActivity.this, "Error al guardar los datos!", Toast.LENGTH_SHORT).show());
 
         }).addOnFailureListener(e -> Toast.makeText(RegisterActivity.this, "Error al registrar!", Toast.LENGTH_SHORT).show());
+    }
+
+    /*método iraLogin()*/
+    private void iraLogin() {
+        finish();
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
 }

@@ -1,5 +1,6 @@
 package com.animalhelpapp.supet_finalproject.account;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,17 +12,21 @@ import android.widget.Toast;
 
 import com.animalhelpapp.supet_finalproject.MainActivity;
 import com.animalhelpapp.supet_finalproject.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     Button reg_btn;
     EditText name, email, password, password2;
-    FirebaseFirestore mFirestore;
-    FirebaseAuth mAuth;
+    private FirebaseFirestore mFirestore;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,26 +71,51 @@ public class RegisterActivity extends AppCompatActivity {
     private void registrarUsuario(String nombre, String mail, String pass) {
         /*crear usuario*/
         mAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(task -> {
-            String id = mAuth.getCurrentUser().getUid();
-            Map<String, Object> map = new HashMap<>();
-            map.put("id", id);
-            map.put("name", nombre);
-            map.put("email", mail);
-            map.put("password", pass);
-            /*guardar los datos en collection Firestore*/
-            mFirestore.collection("user").document(id).set(map).addOnSuccessListener(unused -> {
-                /*si registro con éxito, ir a MainActivity*/
-                finish();
-                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                Toast.makeText(RegisterActivity.this, "Usuario registrado con éxito!", Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(e -> Toast.makeText(RegisterActivity.this, "Error al guardar los datos!", Toast.LENGTH_SHORT).show());
+            if (task.isSuccessful()) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                String uid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", uid);
+                map.put("name", nombre);
+                map.put("email", mail);
+                map.put("password", pass);
 
-        }).addOnFailureListener(e -> Toast.makeText(RegisterActivity.this, "Error al registrar!", Toast.LENGTH_SHORT).show());
+                /*guardar los datos en collection Firestore*/
+                mFirestore.collection("user").document(uid).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        finish();
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                        Toast.makeText(RegisterActivity.this, "Usuario registrado con éxito!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterActivity.this, "Fallo al guardar los datos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /*método iraLogin()*/
     private void iraLogin() {
         finish();
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+    }
+
+    /*para que funcione el getUid()*/
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        if(firebaseUser != null) {
+            reload();
+        }
+    }
+
+    private void reload() {
     }
 }

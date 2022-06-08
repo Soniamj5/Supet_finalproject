@@ -13,4 +13,16 @@
         android:gravity="center"
         android:textSize="40sp"/>
 
+    <Button
+        android:id="@+id/calendar_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calendar_btn"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+
 </FrameLayout>

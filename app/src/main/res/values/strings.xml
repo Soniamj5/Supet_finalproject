@@ -25,4 +25,5 @@
     <string name="home_fragment">Home fragment</string>
     <string name="calendar_fragment">Calendar fragment</string>
     <string name="profile_fragment">Profile fragment</string>
+    <string name="calendar_btn">Crear Evento</string>
 </resources>

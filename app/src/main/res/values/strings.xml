@@ -18,4 +18,5 @@
     <string name="login_txv2">¿No tiene cuenta?</string>
     <string name="login_register">Regístrese</string>
     <string name="logout_btn">Logout</string>
+    <string name="scrollview">Scroll View</string>
 </resources>

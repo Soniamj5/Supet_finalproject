@@ -1,33 +1,69 @@
 package com.animalhelpapp.supet_finalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.animalhelpapp.supet_finalproject.databinding.ActivityMainBinding;
+import com.animalhelpapp.supet_finalproject.fragments.CalendarFragment;
+import com.animalhelpapp.supet_finalproject.fragments.HomeFragment;
+import com.animalhelpapp.supet_finalproject.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    /*Binding de fragmentos*/
+    ActivityMainBinding binding;
 
+/*    FirebaseAuth mAuth;*/
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*se cambia el contentView para que se vean los fragmentos*/
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        /*home fragment default*/
+        reemplazarFragmento(new HomeFragment());
 
-        /*inicializar firebase*/
+        /*bottom nav menu tab*/
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    reemplazarFragmento(new HomeFragment());
+                    break;
+                case R.id.calendar:
+                    reemplazarFragmento(new CalendarFragment());
+                    break;
+                case R.id.profile:
+                    reemplazarFragmento(new ProfileFragment());
+                    break;
+            }
+            return true;
+        });
+
+/*        *//*inicializar firebase*//*
         mAuth = FirebaseAuth.getInstance();
 
-        /*button logout*/
+        *//*button logout*//*
         ImageButton logout_btn = findViewById(R.id.logout_btn);
         logout_btn.setOnClickListener(v -> {
             mAuth.signOut();
             finish();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
-        });
+        });*/
+    }
+
+    /*método para poder ir a los distintos fragments*/
+    private void reemplazarFragmento(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }

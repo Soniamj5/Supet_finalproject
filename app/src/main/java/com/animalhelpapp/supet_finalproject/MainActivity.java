@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         logout_btn.setOnClickListener(v -> {
             mAuth.signOut();
             finish();
-            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
         });
     }

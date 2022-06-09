@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,7 +32,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
 
-
+        PetInfo petInfo = petInfoArrayList.get(position);
+        holder.petName.setText(petInfo.petName);
+        holder.title.setText(petInfo.title);
+        holder.description.setText(petInfo.description);
 
     }
 
@@ -44,8 +46,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView petName, title;
-        EditText description;
+        TextView petName, title, description;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

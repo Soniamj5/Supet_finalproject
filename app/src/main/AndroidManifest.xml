@@ -14,8 +14,8 @@
         android:theme="@style/Theme.Supet_FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".CrearPetInfo"
-            android:exported="false" />
+            android:name=".petInfo.CreatePetInfo"
+            android:exported="true" />
         <activity
             android:name=".account.RegisterActivity"
             android:exported="true" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".petInfo.CrearPetInfo">
+    tools:context=".petInfo.CreatePetInfo">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/app_name"
+                android:id="@+id/crearPetInfo_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -35,7 +35,7 @@
                 android:textStyle="bold|italic" />
 
             <TextView
-                android:id="@+id/reg_txv"
+                android:id="@+id/crearPetInfo_txv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -47,7 +47,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/creatPetInfo_petName"
+                android:id="@+id/createPetInfo_petName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -65,70 +65,57 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/reg_email"
+                android:id="@+id/createPetInfo_titleCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="8dp"
-                android:drawableStart="@drawable/ic_email_24"
+                android:drawableStart="@drawable/ic_edit_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="@string/reg_email"
+                android:hint="@string/crearPetInfo_titulo"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
                 android:textColor="@color/dark_brown"
-                android:textColorHint="@color/dark_brown" />
+                android:textColorHint="@color/dark_brown"
+                android:textSize="18sp"/>
 
             <EditText
-                android:id="@+id/reg_pass1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/createPetInfo_description"
+                android:layout_width="338dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="8dp"
-                android:drawableStart="@drawable/ic_lock_24"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_description_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="@string/reg_pass1"
+                android:gravity="start|top"
+                android:hint="@string/crearPetInfo_description"
                 android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColor="@color/dark_brown"
+                android:inputType="textMultiLine"
+                android:padding="6dp"
                 android:textColorHint="@color/dark_brown"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck" />
-
-            <EditText
-                android:id="@+id/reg_pass2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="8dp"
-                android:drawableStart="@drawable/ic_lock_24"
-                android:drawablePadding="5dp"
-                android:ems="10"
-                android:hint="@string/reg_pass2"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColor="@color/dark_brown"
-                android:textColorHint="@color/dark_brown"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck"
+                android:textSize="18sp"/>
 
             <Button
-                android:id="@+id/reg_btn"
+                android:id="@+id/createPetInfo_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:minHeight="48dp"
-                android:text="@string/reg_btn"
+                android:text="@string/crearPetInfo_btn"
                 android:textColor="@color/cream"
                 android:textSize="20sp"
+                android:layout_margin="16dp"
                 tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
         </LinearLayout>
+
     </ScrollView>
 
 

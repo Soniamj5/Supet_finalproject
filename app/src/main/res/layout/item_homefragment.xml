@@ -87,7 +87,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/descriptionCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -97,9 +97,7 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/lorem_ipsum"
-                android:textColorHint="@color/dark_brown"
-                android:importantForAutofill="no"
-                android:inputType="textMultiLine" />
+                android:textColorHint="@color/dark_brown" />
 
         </LinearLayout>
 

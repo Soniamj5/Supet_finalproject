@@ -1,8 +1,5 @@
 package com.animalhelpapp.supet_finalproject.account;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,12 +7,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.animalhelpapp.supet_finalproject.MainActivity;
 import com.animalhelpapp.supet_finalproject.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -25,7 +23,7 @@ import java.util.Objects;
 public class RegisterActivity extends AppCompatActivity {
     Button reg_btn;
     EditText name, petName, email, password, password2;
-    private FirebaseFirestore mFirestore;
+    private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth mAuth;
 
     @Override
@@ -34,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //Inicializar Firebase
-        mFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
         /*ir a LoginActivity*/
@@ -76,26 +74,18 @@ public class RegisterActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 String uid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-                Map<String, Object> map = new HashMap<>();
-                map.put("name", nombre);
-                map.put("pet", nombreMascota);
-                map.put("email", mail);
-                map.put("password", pass);
+                Map<String, Object> map1 = new HashMap<>();
+                map1.put("name", nombre);
+                map1.put("pet", nombreMascota);
+                map1.put("email", mail);
+                map1.put("password", pass);
 
                 /*guardar los datos en collection Firestore*/
-                mFirestore.collection("user").document(uid).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        finish();
-                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                        Toast.makeText(RegisterActivity.this, "Usuario registrado con éxito!", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterActivity.this, "Fallo al guardar los datos", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                firebaseFirestore.collection("user").document(uid).set(map1).addOnSuccessListener(unused -> {
+                    finish();
+                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                    Toast.makeText(RegisterActivity.this, "Usuario registrado con éxito!", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(e -> Toast.makeText(RegisterActivity.this, "Fallo al guardar los datos", Toast.LENGTH_SHORT).show());
             } else {
                 Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
             }

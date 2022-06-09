@@ -21,7 +21,10 @@
     <string name="login_register">Regístrese</string>
     <string name="logout_btn">Logout</string>
     <string name="scrollview">Scroll View</string>
-    <string name="crear_title">Información</string>
+    <string name="crear_title">Información Tarjeta</string>
+    <string name="crearPetInfo_titulo">Título</string>
+    <string name="crearPetInfo_description">Descripción </string>
+    <string name="crearPetInfo_btn">Crear </string>
 
     <!--Fragment-->
     <string name="home_fragment">Home fragment</string>
@@ -38,4 +41,5 @@
     <string name="lorem_ipsum">Lorem ipsum sdnfsinf sduf sinfisnf siudhf si isud iushdf iushfiush dfiushdiuhsiuh ihusd</string>
     <string name="home_ejemploPetName">Dana</string>
     <string name="home_ejemploTitle">Vacuna Rabia</string>
+
 </resources>

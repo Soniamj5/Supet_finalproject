@@ -5,7 +5,7 @@
     <string name="calendar_icon">Calendario</string>
     <string name="add">Add</string>
     <string name="reg_txv">Complete los siguientes datos:</string>
-    <string name="reg_name">Nombre</string>
+    <string name="reg_name">Nombre usuario</string>
     <string name="reg_email">Correo</string>
     <string name="reg_pass1">Contraseña</string>
     <string name="reg_pass2">Repita la contraseña</string>
@@ -26,4 +26,7 @@
     <string name="calendar_fragment">Calendar fragment</string>
     <string name="profile_fragment">Profile fragment</string>
     <string name="calendar_btn">Crear Evento</string>
+    <string name="profile_pic">Imagen de perfil</string>
+    <string name="profile_petName">Nombre mascota</string>
+    <string name="profile_logout">¿Seguro que quieres cerrar sesión?</string>
 </resources>

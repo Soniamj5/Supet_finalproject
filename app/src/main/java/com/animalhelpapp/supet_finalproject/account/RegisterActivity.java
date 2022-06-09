@@ -24,7 +24,7 @@ import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     Button reg_btn;
-    EditText name, email, password, password2;
+    EditText name, petName, email, password, password2;
     private FirebaseFirestore mFirestore;
     private FirebaseAuth mAuth;
 
@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //conectar con la parte gráfica
         name = findViewById(R.id.reg_name);
+        petName = findViewById(R.id.reg_petName);
         email = findViewById(R.id.reg_email);
         password = findViewById(R.id.reg_pass1);
         password2 = findViewById(R.id.reg_pass2);
@@ -52,31 +53,32 @@ public class RegisterActivity extends AppCompatActivity {
         reg_btn.setOnClickListener(v -> {
             //leer los campos
             String nombre = name.getText().toString().trim();
+            String nombreMascota = petName.getText().toString().trim();
             String mail = email.getText().toString().trim();
             String pass = password.getText().toString().trim();
             String pass2 = password2.getText().toString().trim();
 
             /*error si campos vacíos*/
-            if (nombre.isEmpty() && mail.isEmpty() && pass.isEmpty() && pass2.isEmpty()) {
+            if (nombre.isEmpty() || nombreMascota.isEmpty() || mail.isEmpty() || pass.isEmpty() || pass2.isEmpty()) {
                 Toast.makeText(RegisterActivity.this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
             } else if (!pass2.equals(pass)) {
                 Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             } else {
-                registrarUsuario(nombre, mail, pass);
+                registrarUsuario(nombre, nombreMascota, mail, pass);
             }
         });
     }
 
     //método registrarUsuario
-    private void registrarUsuario(String nombre, String mail, String pass) {
+    private void registrarUsuario(String nombre, String nombreMascota, String mail, String pass) {
         /*crear usuario*/
         mAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 String uid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
                 Map<String, Object> map = new HashMap<>();
-                map.put("id", uid);
                 map.put("name", nombre);
+                map.put("pet", nombreMascota);
                 map.put("email", mail);
                 map.put("password", pass);
 

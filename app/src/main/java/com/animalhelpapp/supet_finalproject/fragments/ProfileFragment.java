@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
 
-    Button sign_out;
+    ImageButton sign_out;
     /*firebase*/
     FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -38,6 +38,10 @@ public class ProfileFragment extends Fragment {
             /*cerramos sesión*/
             FirebaseAuth.getInstance().signOut();
         });
+
+        /*--------------------Get DATA------------------------*/
+
+
         return view;
     }
 

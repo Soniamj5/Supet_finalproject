@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment"
-    android:background="@color/light_coral"
+    android:background="@color/cream"
     android:orientation="vertical">
 
     <ScrollView
@@ -25,25 +25,51 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/profile_fragment"
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                tools:ignore="TextContrastCheck" />
 
-            <Button
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="@color/indian_red"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/profile_pic"
+                    android:src="@mipmap/profile_pic" />
+
+                <EditText
+                    android:id="@+id/profile_petName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_pic"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="@string/profile_logout"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/cream"
+                    android:textColorHint="@color/cream"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+            </RelativeLayout>
+
+            <ImageButton
                 android:id="@+id/sign_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/cream"
-                android:gravity="center"
-                android:text="@string/logout_btn"
-                android:textColor="@color/indian_red" />
+                android:contentDescription="@string/logout_btn"
+                android:maxWidth="200dp"
+                android:maxHeight="200dp"
+                android:src="@drawable/logout"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginTop="40dp"/>
         </LinearLayout>
     </ScrollView>
 

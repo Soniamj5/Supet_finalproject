@@ -9,17 +9,19 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="82dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="420dp"
                 android:contentDescription="@string/image"
                 app:srcCompat="@mipmap/perro" />
 
@@ -60,16 +62,32 @@
                 android:minHeight="48dp"
                 android:textColor="@color/dark_brown"
                 android:textColorHint="@color/dark_brown"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
+            <EditText
+                android:id="@+id/reg_petName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:drawableStart="@drawable/ic_pets_24"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="@string/reg_petName"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="@color/dark_brown"
+                android:textColorHint="@color/dark_brown"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_email_24"
-                android:drawablePadding="5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:drawableStart="@drawable/ic_email_24"
+                android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/reg_email"
                 android:importantForAutofill="no"
@@ -93,8 +111,8 @@
                 android:minHeight="48dp"
                 android:textColor="@color/dark_brown"
                 android:textColorHint="@color/dark_brown"
-                tools:ignore="TextContrastCheck"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/reg_pass2"
@@ -111,8 +129,8 @@
                 android:minHeight="48dp"
                 android:textColor="@color/dark_brown"
                 android:textColorHint="@color/dark_brown"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/reg_btn"
@@ -123,29 +141,32 @@
                 android:minHeight="48dp"
                 android:text="@string/reg_btn"
                 android:textColor="@color/cream"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
 
             <TextView
                 android:id="@+id/reg_txv2"
-                android:layout_width="124dp"
+                android:layout_width="342dp"
                 android:layout_height="25dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
                 android:gravity="end"
                 android:text="@string/reg_txv2"
                 android:textColor="@color/dark_brown"
-                android:textSize="16sp"
-                android:layout_gravity="end" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/reg_login"
-                android:layout_width="91dp"
+                android:layout_width="346dp"
                 android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
                 android:gravity="end"
                 android:text="@string/reg_login"
                 android:textColor="@color/indian_red"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_gravity="end"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

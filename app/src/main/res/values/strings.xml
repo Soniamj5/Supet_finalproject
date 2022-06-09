@@ -25,6 +25,7 @@
     <string name="crearPetInfo_titulo">Título</string>
     <string name="crearPetInfo_description">Descripción </string>
     <string name="crearPetInfo_btn">Crear </string>
+    <string name="google_signIn">Inicie sesión con Google</string>
 
     <!--Fragment-->
     <string name="home_fragment">Home fragment</string>

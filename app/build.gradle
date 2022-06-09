@@ -41,8 +41,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.0.1'
     implementation 'com.google.firebase:firebase-firestore:24.1.2'
 
-    /*mostrar imágenes*/
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    /*google sign in*/
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'

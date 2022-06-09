@@ -62,14 +62,17 @@ public class CreatePetInfo extends AppCompatActivity {
     private void crearPetInfo(String nombre, String titulo, String descripcion) {
         FirebaseUser user = mAuth.getCurrentUser();
         if(user != null) {
+            /*coger usuario actual*/
             String uid = mAuth.getCurrentUser().getUid();
+            /*referenciar la colección para poder utilizarla después*/
             CollectionReference userCollection = firebaseFirestore.collection("user");
+            /*creando el map de objetos para la subcoleccion*/
             Map<String, Object> map2 = new HashMap<>();
             map2.put("petName", nombre);
             map2.put("title", titulo);
             map2.put("description", descripcion);
             
-            /*guardar los datos en firestore*/
+            /*guardar los datos dentro de usercollection en una subclase llamada petInfo*/
             userCollection.document(uid).collection("petInfo").add(map2).addOnSuccessListener(unused -> {
                 finish();
                 startActivity(new Intent(CreatePetInfo.this, MainActivity.class));

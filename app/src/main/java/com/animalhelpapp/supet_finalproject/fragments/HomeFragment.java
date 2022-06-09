@@ -40,7 +40,6 @@ public class HomeFragment extends Fragment {
     Adapter adapter;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,12 +77,14 @@ public class HomeFragment extends Fragment {
     private void cogerDatos() {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         String uid = FirebaseAuth.getInstance().getUid();
-        if(firebaseUser != null) {
+        if (firebaseUser != null) {
             Log.d(TAG, "onAuthStateChanged: signed_in: " + firebaseUser.getUid());
             CollectionReference userCollection = firebaseFirestore.collection("user");
+            /*para poder coger el usuario con uid necesitamos el assert null*/
             assert uid != null;
+            /*conectar con la subcolección PetInfo de users para coger los datos almacenados*/
             userCollection.document(uid).collection("petInfo").addSnapshotListener((value, error) -> {
-                if(error != null) {
+                if (error != null) {
                     Log.e("Firestore error", error.getMessage());
                 } else {
                     assert value != null;
@@ -99,6 +100,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+    /*método para ir a crearPetInfo*/
     private void crearPetInfo() {
         Intent intent = new Intent(getActivity(), CreatePetInfo.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -38,10 +38,6 @@ public class ProfileFragment extends Fragment {
             /*cerramos sesión*/
             FirebaseAuth.getInstance().signOut();
         });
-
-        /*--------------------Get DATA------------------------*/
-
-
         return view;
     }
 

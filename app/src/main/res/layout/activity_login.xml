@@ -91,24 +91,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/google_signIn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/button_desing"
-                android:drawableStart="@drawable/googleg_standard_color_18"
-                android:paddingStart="10dp"
-                android:text="@string/google_signIn"
-                android:textColor="@color/dark_brown"
-                android:textSize="18sp"
-                tools:ignore="RtlSymmetry" />
-
-
             <TextView
                 android:id="@+id/login_txv2"
                 android:layout_width="wrap_content"
@@ -130,6 +112,7 @@
                 android:textColor="@color/indian_red"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 

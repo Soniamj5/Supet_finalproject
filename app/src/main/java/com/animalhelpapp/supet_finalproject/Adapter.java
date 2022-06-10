@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView petName, title, description;
+        ImageView btn_delete;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

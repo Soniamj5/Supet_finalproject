@@ -66,12 +66,12 @@ public class HomeFragment extends Fragment {
         adapter = new Adapter(getActivity(), petInfoArrayList);
 
         recyclerView.setAdapter(adapter);
-
         cogerDatos();
 
 
         return view;
     }
+
 
     @SuppressLint("NotifyDataSetChanged")
     private void cogerDatos() {

@@ -1,5 +1,6 @@
 package com.animalhelpapp.supet_finalproject.account;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,7 +14,6 @@ import com.animalhelpapp.supet_finalproject.MainActivity;
 import com.animalhelpapp.supet_finalproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -23,8 +23,11 @@ import java.util.Objects;
 public class RegisterActivity extends AppCompatActivity {
     Button reg_btn;
     EditText name, petName, email, password, password2;
-    private FirebaseFirestore firebaseFirestore;
-    private FirebaseAuth mAuth;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    ProgressDialog progressDialog;
+    FirebaseFirestore firebaseFirestore;
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Inicializar Firebase
         firebaseFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        mUser=mAuth.getCurrentUser();
 
         /*ir a LoginActivity*/
         TextView reg_login = findViewById(R.id.reg_login);
@@ -45,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.reg_email);
         password = findViewById(R.id.reg_pass1);
         password2 = findViewById(R.id.reg_pass2);
+        progressDialog = new ProgressDialog(RegisterActivity.this);
 
         //Botón registrar
         reg_btn = findViewById(R.id.reg_btn);
@@ -61,7 +66,19 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
             } else if (!pass2.equals(pass)) {
                 Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                password.requestFocus();
+                password2.requestFocus();
+            } else if(!mail.matches(emailPattern)) {
+                Toast.makeText(RegisterActivity.this, "Email no válido", Toast.LENGTH_SHORT).show();
+                email.requestFocus();
             } else {
+                /*mostrar que se está registrando*/
+                progressDialog.setMessage("Registro en proceso...");
+                progressDialog.setTitle("Registro");
+                progressDialog.setCanceledOnTouchOutside(false);
+                progressDialog.show();
+
+                /*método para registrar*/
                 registrarUsuario(nombre, nombreMascota, mail, pass);
             }
         });
@@ -72,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
         /*crear usuario*/
         mAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                FirebaseUser user = mAuth.getCurrentUser();
+                progressDialog.dismiss();
                 String uid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
                 Map<String, Object> map1 = new HashMap<>();
                 map1.put("name", nombre);

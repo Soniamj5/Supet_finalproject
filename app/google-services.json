@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "104552803573-7v3197s0ioat3hee4utlb130qdaimfmi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.animalhelpapp.supet_finalproject",
+            "certificate_hash": "5349f0b234af4cea2833070d26da74cd3376ab0a"
+          }
+        },
+        {
           "client_id": "104552803573-f3hsjqhceksbhmrd0bgh2aa1i40hbs0g.apps.googleusercontent.com",
           "client_type": 3
         }

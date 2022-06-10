@@ -45,18 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-/*        *//*inicializar firebase*//*
-        mAuth = FirebaseAuth.getInstance();
-
-        *//*button logout*//*
-        ImageButton logout_btn = findViewById(R.id.logout_btn);
-        logout_btn.setOnClickListener(v -> {
-            mAuth.signOut();
-            finish();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
-        });*/
     }
 
     /*método para poder ir a los distintos fragments*/

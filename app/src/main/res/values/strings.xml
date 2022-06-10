@@ -29,7 +29,8 @@
 
     <!--Fragment-->
     <string name="home_fragment">Home fragment</string>
-    <string name="calendar_fragment">Calendar fragment</string>
+    <string name="calendar_fragment">¿Quieres crear alguna notificación?</string>
+    <string name="calendar_notif">Notificación icono</string>
     <string name="profile_fragment">Profile fragment</string>
     <string name="calendar_btn">Crear Evento</string>
     <string name="profile_pic">Imagen de perfil</string>
